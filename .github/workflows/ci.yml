@@ -1,0 +1,15 @@
+name: CI (developer console pilot)
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check required files exist
+        run: |
+          test -f README.md
+          test -f docs/OVERVIEW.md
+          test -f ops/RUNBOOK.md
